@@ -3,7 +3,7 @@ up:
 install:
 	docker-compose exec app bash -c "(cd skill-typing-front && npm install)"
 
-dev: 
+dev:
 	docker-compose exec app bash -c "(cd skill-typing-front && npm run dev)"
 down: 
 	docker-compose down 

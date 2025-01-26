@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import  Auth  from "../auth/auth";
+import Auth from "../auth/auth";
 
 import { AuthProvider } from "react-oidc-context";
 
@@ -19,11 +19,11 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return(
-  <>
-    <AuthProvider {...cognitoAuthConfig}>
-      <Auth/>
-    </AuthProvider>
-  </>
-  )
+  return (
+    <>
+      <AuthProvider {...cognitoAuthConfig}>
+        <Auth />
+      </AuthProvider>
+    </>
+  );
 }
