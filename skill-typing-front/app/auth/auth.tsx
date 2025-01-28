@@ -4,14 +4,12 @@ import { useAuth } from "react-oidc-context";
 import { Outlet, useLocation } from "react-router";
 import type { Route } from "../+types/root";
 
-  export function meta({}: Route.MetaArgs) {
-    return [
-      { title: "New React Router App" },
-      { name: "description", content: "Welcome to React Router!" },
-    ];
-  }
-
-
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 function Auth() {
   const auth = useAuth();
@@ -24,7 +22,6 @@ function Auth() {
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
-
   if (auth.isLoading) {
     return <div>Loading...</div>;
   }
@@ -33,7 +30,7 @@ function Auth() {
     return <div>Encountering error... {auth.error.message}</div>;
   }
 
-  console.log(auth.user)
+  console.log(auth.user);
 
   if (auth.isAuthenticated && location.pathname == "/") {
     return (
@@ -51,7 +48,7 @@ function Auth() {
   if (auth.isAuthenticated) {
     return (
       <div>
-        <Outlet/>
+        <Outlet />
       </div>
     );
   }
@@ -65,7 +62,7 @@ function Auth() {
         <button onClick={() => signOutRedirect()}>Sign out</button>
       </p>
     </div>
-  )
+  );
 }
-  
+
 export default Auth;
