@@ -1,19 +1,31 @@
 // App.js
-
+import React from "react";
 import { useAuth } from "react-oidc-context";
-import { Outlet, useLocation } from "react-router";
-import type { Route } from "../+types/root";
+import { Outlet } from "react-router";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "New React Router App" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
 
+function isCustomProfile(
+  profile: unknown,
+): profile is { "cognito:username": string; email: string } {
+  return (
+    typeof profile === "object" &&
+    profile !== null &&
+    "cognito:username" in profile &&
+    typeof (profile as Record<string, unknown>)["cognito:username"] ===
+      "string" &&
+    typeof (profile as Record<string, unknown>).email === "string"
+  );
+}
+
 function Auth() {
   const auth = useAuth();
-  const location = useLocation();
+  // const location = useLocation();
 
   const signOutRedirect = () => {
     const clientId = import.meta.env.VITE_COGNITO_CLIENT_ID;
@@ -32,14 +44,17 @@ function Auth() {
 
   console.log(auth.user);
 
-  if (auth.isAuthenticated && location.pathname == "/") {
+  if (auth.user?.profile && isCustomProfile(auth.user.profile)) {
+    const username = auth.user.profile["cognito:username"];
+    const email = auth.user.profile.email;
+
     return (
       <div>
-        <pre> UserName: {auth.user["profile"]["cognito:username"]} </pre>
-        <pre> Hello: {auth.user?.profile.email} </pre>
-        <pre> ID Token: {auth.user?.id_token} </pre>
-        <pre> Access Token: {auth.user?.access_token} </pre>
-        <pre> Refresh Token: {auth.user?.refresh_token} </pre>
+        <pre> UserName: {username} </pre>
+        <pre> Hello: {email} </pre>
+        <pre> ID Token: {auth.user.id_token} </pre>
+        <pre> Access Token: {auth.user.access_token} </pre>
+        <pre> Refresh Token: {auth.user.refresh_token} </pre>
         <button onClick={() => auth.removeUser()}>Sign out</button>
       </div>
     );

@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home";
+import React from "react";
 import Auth from "../auth/auth";
 
 import { AuthProvider } from "react-oidc-context";
@@ -11,7 +11,7 @@ const cognitoAuthConfig = {
   scope: import.meta.env.VITE_COGNITO_SCOPE,
 };
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "New React Router App" },
     { name: "description", content: "Welcome to React Router!" },
