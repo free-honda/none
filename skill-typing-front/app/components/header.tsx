@@ -27,7 +27,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-white">
+    <header className="fixed left-0 right-0 top-0 z-50 bg-white">
       <div className="mx-auto flex max-w-screen-xl items-center justify-between px-4 py-2">
         <Link to="/" className="text-xl text-gray-900">
           Skill Typing
