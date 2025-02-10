@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export default function Game() {
   return (
@@ -9,22 +10,20 @@ export default function Game() {
           <p className="mb-4 min-h-[300px] rounded bg-white p-4 text-gray-900">
             問題文
           </p>
-          <div>
-            <ul className="grid grid-cols-2 gap-4">
-              <li className="rounded bg-white p-4 text-center text-gray-900">
-                選択肢1
-              </li>
-              <li className="rounded bg-white p-4 text-center text-gray-900">
-                選択肢2
-              </li>
-              <li className="rounded bg-white p-4 text-center text-gray-900">
-                選択肢3
-              </li>
-              <li className="rounded bg-white p-4 text-center text-gray-900">
-                選択肢4
-              </li>
-            </ul>
-          </div>
+          <ul className="grid grid-cols-2 gap-4">
+            <li className="rounded bg-white p-4 text-center text-gray-900">
+              選択肢1
+            </li>
+            <li className="rounded bg-white p-4 text-center text-gray-900">
+              選択肢2
+            </li>
+            <li className="rounded bg-white p-4 text-center text-gray-900">
+              選択肢3
+            </li>
+            <li className="rounded bg-white p-4 text-center text-gray-900">
+              選択肢4
+            </li>
+          </ul>
         </div>
         <input
           type="text"
@@ -32,6 +31,12 @@ export default function Game() {
           placeholder="答えをここに入力してください"
           className="mx-auto mt-8 block w-1/2 rounded border border-blue-300 bg-white p-2 text-center text-gray-900"
         />
+        <Link
+          to="/result"
+          className="mx-auto mt-6 block w-40 rounded-full bg-blue-600 px-4 py-2 text-center text-white hover:bg-blue-500"
+        >
+          ゲーム終了
+        </Link>
       </div>
     </div>
   );
