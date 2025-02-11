@@ -4,26 +4,26 @@
 
 1. docker コンテナを立ち上げる
 
-```
-$ make up
+```bash
+make up
 ```
 
 2. モジュールのインストール（初回及びモジュール追加時のみ）
 
-```
-$ make install
+```bash
+make install
 ```
 
 3. 開発用サーバー起動
 
-```
-$ make dev
+```bash
+make dev
 ```
 
 4. ブラウザから`http://localhost:5173`にアクセスしてブラウザ上で表示を確認
 
 5. docker コンテナを削除
 
-```
-$ make down
+```bash
+make down
 ```
