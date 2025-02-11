@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from "react-router";
+import type { Route } from "../+types/root";
 
-export default function Game() {
+export async function clientLoader() {
+  const response = await fetch("/api/game/questions");
+
+  const questions = await response.json();
+
+  return questions;
+}
+
+export default function Game({ loaderData }: Route.ComponentProps) {
+  console.log(loaderData);
+
   return (
     <div className="grid min-h-screen transform place-items-center">
       <div className="w-full max-w-screen-lg">
