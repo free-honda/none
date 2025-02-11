@@ -7,6 +7,5 @@ export default [
     route("/game", "./routes/game.tsx"),
     route("/result", "./routes/result.tsx"),
     route("/explanation", "./routes/explanation.tsx"),
-    route("/management", "./routes/management.tsx"),
   ]),
 ] satisfies RouteConfig;
