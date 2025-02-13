@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router";
 import type { Question } from "~/types/types";
+import LinkButton from "./linkButton";
 
 export default function GameExplanation({
   question,
@@ -39,12 +39,9 @@ export default function GameExplanation({
             &gt;
           </button>
         </div>
-        <Link
-          to="/top-page"
-          className="mx-auto mt-6 block w-40 rounded-full bg-blue-600 px-4 py-2 text-center text-white hover:bg-blue-500"
-        >
-          ホームに戻る
-        </Link>
+        <div className="mt-4 grid place-items-center">
+          <LinkButton url="/">ホームに戻る</LinkButton>
+        </div>
       </div>
     </div>
   );

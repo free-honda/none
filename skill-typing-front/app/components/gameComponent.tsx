@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./button";
 import type { Question } from "~/types/types";
 
 export default function GameComponent({
@@ -39,21 +40,18 @@ export default function GameComponent({
             ))}
           </ul>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="grid place-items-center">
           <input
             type="text"
             name="answer"
             value={userAnswer}
             onChange={(e) => setUserAnswer(e.target.value)}
             placeholder="答えをここに入力してください"
-            className="mx-auto mt-8 block w-1/2 rounded border border-blue-300 bg-white p-2 text-center text-gray-900"
+            className="mt-8 block w-1/2 rounded border border-blue-300 bg-white p-2 text-center text-gray-900"
           />
-          <button
-            type="submit"
-            className="mx-auto mt-6 block w-40 rounded-full bg-blue-600 px-4 py-2 text-center text-white hover:bg-blue-500"
-          >
+          <Button type="submit" className="mt-4">
             {isLastQuestion ? "ゲーム終了" : "次の問題"}
-          </button>
+          </Button>
         </form>
       </div>
     </div>

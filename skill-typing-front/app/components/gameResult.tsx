@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./button";
 
 export default function GameResult({
   score,
@@ -9,16 +10,13 @@ export default function GameResult({
 }) {
   return (
     <div className="grid min-h-screen -translate-y-32 transform place-items-center">
-      <div className="w-full max-w-screen-lg">
+      <div className="grid w-full max-w-screen-lg place-items-center">
         <p className="text-center text-2xl text-gray-900">
           最終スコア : {score}点
         </p>
-        <button
-          onClick={onShowExplanation}
-          className="mx-auto mt-6 block w-40 rounded-full bg-blue-600 px-4 py-2 text-center text-white hover:bg-blue-500"
-        >
+        <Button onClick={onShowExplanation} className="mt-4">
           用語解説
-        </button>
+        </Button>
       </div>
     </div>
   );
