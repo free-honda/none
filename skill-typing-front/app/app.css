@@ -1,12 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html,
-body {
-  @apply bg-blue-100;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+@layer base {
+  html,
+  body {
+    background-color: oklch(0.932 0.032 255.585);
   }
 }
