@@ -1,8 +1,10 @@
-@import "tailwindcss";
+@import "tailwindcss"; /* Tailwind CSS をインポート */
 
+/* ベースレイヤーのスタイルを定義 */
 @layer base {
   html,
   body {
+    /* 背景色を指定 (OKLCHカラーモデル) */
     background-color: oklch(0.932 0.032 255.585);
   }
 }
