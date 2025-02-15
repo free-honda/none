@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'app/**/*.js'
-      - 'app/**/*.tsx'
-      - 'app/**/*.css'
+    # paths:
+    #   - 'app/**/*.js'
+    #   - 'app/**/*.tsx'
+    #   - 'app/**/*.css'
 
 jobs:
   build:
